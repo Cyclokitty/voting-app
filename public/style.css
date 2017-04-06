@@ -1,0 +1,25 @@
+body {
+  background-color: #003366;
+  color: #c0c0c0;
+  padding: 0px;
+  margin: 0px;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: #ffd700;
+  color: #003366;
+}
+
+.cards {
+  margin: 10px;
+}
+
+.grouping {
+  border: 1px solid #c0c0c0;
+}
+
+.heading {
+  color: #ffd700;
+  text-align: center;
+}
