@@ -1,31 +1,20 @@
 [
   {
     "heading": "Cake vs Pie",
-    "details": [
-      {"category": "cake",  "votes": 200},
-      {"category": "pie",  "votes": 145}
-    ],
+    "details": ["cake", "pie"],
+    "data": [200, 145],
     "link": "/cakeorpie"
   },
   {
     "heading": "Best Pets",
-    "details": [
-      {"category": "cats",  "votes": 200},
-      {"category": "dogs",  "votes": 135},
-      {"category": "guinea pigs",  "votes": 37},
-      {"category": "bunnies",  "votes": 96}
-    ],
+    "details": ["cats", "dogs", "guinea pigs", "bunnies"],
+    "data": [200, 135, 37, 96],
     "link": "/bestpets"
   },
   {
     "heading": "Favourite Programming Language",
-    "details": [
-      {"category": "Javascript",  "votes": 97},
-      {"category": "Closure",  "votes": 1},
-      {"category": "C++",  "votes": 32},
-      {"category": "Python",  "votes": 86},
-      {"category": "Java",  "votes": 10}
-    ],
+    "details": ["Javascript", "Closure", "C++", "Python", "Java"],
+    "data": [97, 1, 32, 86, 10],
     "link": "/favcoding"
   }
 ]

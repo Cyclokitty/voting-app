@@ -32,9 +32,9 @@ app.get('/signup', (req, res) => {
   res.render('signup', {});
 });
 
-app.get('/:word', (req, res) => {
-  let heading = req.params.word;
-  res.render('poll', {heading: `${heading}`});
+app.get('/:poll', (req, res) => {
+  let heading = req.params.poll;
+  res.render('poll', {heading: `/${heading}`, 'docs': docs});
 });
 
 app.listen(port, () => {

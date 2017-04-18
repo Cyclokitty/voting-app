@@ -4,11 +4,20 @@
 
     <div class='jumbotron'>
       <div class='containter'>
-        <h1>{{ heading }}</h1>
+        {% for doc in docs %}
+        {% if heading == doc.link %}
+        <h1>{{doc.heading}}</h1>
         <p>
-          -- the poll for {{ heading }} will be here.
+          -- the poll for {{ doc.heading }} will be here.
         </p>
+        <div class="row">
+          <div class="col-sm-6">
+            <canvas id="chart" width="300" height="300"></canvas>
+          </div>
+        </div>
       </div>
+        {% endif %}
+        {% endfor %}
     </div>
 
   {% include './partials/footer.html' %}
