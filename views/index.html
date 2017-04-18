@@ -10,27 +10,17 @@
         </p>
       </div>
     </div>
-    <div class="container-fluid cards">
-      <div class='row'>
-        <div class='col-sm-4 grouping'>
-          <h4 class='heading'>{{ heading }}</h4>
-          <p>
-            Random things to type here. Because random is randomly occuring. Hey! Macarena!
-          </p>
-        </div>
-        <div class='col-sm-4 grouping'>
-          <h4 class='heading'>{{ heading }}</h4>
-          <p>
-            Random things to type here. Because random is randomly occuring. Hey! Macarena!
-          </p>
-        </div>
-        <div class='col-sm-4 grouping'>
-          <h4 class='heading'>{{ heading }}</h4>
-          <p>
-            Random things to type here. Because random is randomly occuring. Hey! Macarena!
-          </p>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class='text-center'>Polls that need your votes:</h2>
         </div>
       </div>
+      <ul class='list-group'>
+        {% for doc in docs %}
+        <li class='list-group-item'><a href={{ doc.link }}>{{ doc.heading }}</a></li>
+        {% endfor %}
+      </ul>
     </div>
 
     {% include './partials/footer.html' %}

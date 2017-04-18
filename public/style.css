@@ -23,3 +23,12 @@ body {
   color: #ffd700;
   text-align: center;
 }
+
+.card-title {
+  color: #333;
+  font-size: 2em;
+}
+
+.card-text {
+  color: #333;
+}

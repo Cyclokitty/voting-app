@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const nunjucks = require('nunjucks');
 const engines = require('consolidate');
+const docs = require('./docs.json');
 
 const port = process.env.PORT || 3000;
 
@@ -16,7 +17,7 @@ app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
-  res.render('index', {heading: 'whattup!'});
+  res.render('index', { 'docs': docs });
 });
 
 app.get('/about', (req, res) => {
@@ -32,8 +33,8 @@ app.get('/signup', (req, res) => {
 });
 
 app.get('/:word', (req, res) => {
-  const word = req.params.word;
-  res.render('word', {title: `${word}`});
+  let heading = req.params.word;
+  res.render('poll', {heading: `${heading}`});
 });
 
 app.listen(port, () => {
