@@ -17,8 +17,8 @@
         </div>
       </div>
       <ul class='list-group'>
-        {% for doc in docs %}
-        <li class='list-group-item'><a href={{ doc.link }}>{{ doc.heading }}</a></li>
+        {% for poll in polls %}
+        <li class='list-group-item'><a href="/poll/{{ poll._id }}">{{ poll.heading }}</a></li>
         {% endfor %}
       </ul>
     </div>

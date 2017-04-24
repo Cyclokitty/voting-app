@@ -3,10 +3,10 @@ var ctx = document.getElementById('chart');
 var myDonut = new Chart(ctx, {
   type: 'doughnut',
   data: {
-  labels: doc.details,
+  labels: poll.details,
   datasets: [
     {
-      data: doc.data,
+      data: poll.data,
       backgroundColor: [
         "#b666d2",
         "#6BCAE2",

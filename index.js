@@ -2,7 +2,20 @@ const express = require('express');
 const app = express();
 const nunjucks = require('nunjucks');
 const engines = require('consolidate');
-const docs = require('./docs.json');
+const dotenv = require('dotenv').config();
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGO);
+
+const pollSchema = new mongoose.Schema({
+  heading: String,
+  poll: [{
+    name: String,
+    votes: Number
+  }]
+});
+
+const Poll = mongoose.model("Poll", pollSchema);
 
 const port = process.env.PORT || 3000;
 
@@ -17,7 +30,13 @@ app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
-  res.render('index', { 'docs': docs });
+  Poll.find({}, function(err, allPolls) {
+    if (err) {
+      console.log(err);
+    } else {
+        res.render('index', {polls: allPolls});
+    }
+  });
 });
 
 app.get('/about', (req, res) => {
@@ -32,9 +51,14 @@ app.get('/signup', (req, res) => {
   res.render('signup', {});
 });
 
-app.get('/:poll', (req, res) => {
-  let heading = req.params.poll;
-  res.render('poll', {heading: `/${heading}`, 'docs': docs});
+app.get('/poll/:id', (req, res) => {
+  Poll.findById(req.params.id, function(err, showPoll) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('poll', {poll: showPoll});
+    }
+  });
 });
 
 app.listen(port, () => {

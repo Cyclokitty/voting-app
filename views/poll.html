@@ -4,20 +4,27 @@
 
     <div class='jumbotron'>
       <div class='containter'>
-        {% for doc in docs %}
-        {% if heading == doc.link %}
-        <h1>{{doc.heading}}</h1>
+        <h1>{{poll.heading}}</h1>
         <p>
-          -- the poll for {{ doc.heading }} will be here.
+          -- the poll for {{ poll.heading }} will be here.
         </p>
         <div class="row">
           <div class="col-sm-6">
-            <canvas id="chart" width="300" height="300"></canvas>
+            <canvas id="chart" width="150" height="150"></canvas>
           </div>
         </div>
       </div>
-        {% endif %}
-        {% endfor %}
     </div>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h2>This {{ poll.heading }} poll will have the following options and numbers:</h2>
+          {% for item in poll.poll %}
+            <p>{{ item.name }} = {{ item.votes }} votes so far.</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <script src='./chartMaker.js'></script>
   {% include './partials/footer.html' %}
